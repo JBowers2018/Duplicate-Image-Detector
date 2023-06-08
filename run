@@ -1,0 +1,15 @@
+if([ $# -lt 1 ] || [ $# -gt 2 ]);
+then
+echo "Usage: ./run <image_file_name> <optional_directory_name>"
+exit 2
+fi
+
+if [ $# -eq 1 ];
+then
+/usr/local/spark-1.6.1-bin-hadoop1/bin/spark-submit --master spark://10.56.1.10:7077 /home/cc/finalproj/duplicate_image_detector.py $1
+fi
+
+if [ $# -eq 2 ];
+then
+/usr/local/spark-1.6.1-bin-hadoop1/bin/spark-submit --master spark://10.56.1.10:7077 /home/cc/finalproj/duplicate_image_detector.py $1 $2
+fi
